@@ -1,0 +1,34 @@
+var unsortedWords = [String]()
+func read(_ array: inout [String]) {
+    var line : String?
+
+    repeat {
+        line = readLine()
+        if line != nil {
+            array.append(line!)
+        }
+    } while line != nil
+}
+func insertionSort(_ array: inout  [String]) {
+    var array = unsortedWords
+    var stepCount = 0
+    var totalCount = 0
+   // print("Pass: 0, Swaps: 0/0, Array: \(array)")
+    for i in 1..<array.count {
+        var passCount = 0
+        let newArray = array[i]
+        var j = i-1
+        while j>=0 && array[j] > newArray {
+            array[j+1] = array[j]
+            j -= 1
+            passCount += 1
+            totalCount += 1
+        }
+        array[j+1] = newArray
+        stepCount += 1
+//        print(array)
+    }
+    
+}
+//read(&unsortedWords)
+insertionSort(&unsortedWords)
